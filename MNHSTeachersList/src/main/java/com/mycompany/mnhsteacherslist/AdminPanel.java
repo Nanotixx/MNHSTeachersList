@@ -8,6 +8,11 @@ package com.mycompany.mnhsteacherslist;
  *
  * @author Hanprince
  */
+
+// Packages 
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+
 public class AdminPanel extends javax.swing.JFrame {
 
     /**
@@ -15,6 +20,16 @@ public class AdminPanel extends javax.swing.JFrame {
      */
     public AdminPanel() {
         initComponents();
+        // Centering the table (DO NOT TOUCH)
+        DefaultTableCellRenderer center = new DefaultTableCellRenderer();
+        center.setHorizontalAlignment(SwingConstants.CENTER);
+        
+        for(int i = 0; i < tblTeacherList.getColumnCount(); i++) {
+            tblTeacherList.getColumnModel().getColumn(i).setCellRenderer(center);
+        }
+        
+        tblTeacherList.getTableHeader().setDefaultRenderer(center);
+        
     }
 
     /**
@@ -26,17 +41,119 @@ public class AdminPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlTop = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        pnlSide = new javax.swing.JPanel();
+        paneMain = new javax.swing.JTabbedPane();
+        sclpaneTeacherList = new javax.swing.JScrollPane();
+        tblTeacherList = new javax.swing.JTable();
+        paneEducationalBackground = new javax.swing.JTabbedPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlTop.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setText("Teacher's Information Management System");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Muntinlupa National High School - Senior High");
+
+        javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
+        pnlTop.setLayout(pnlTopLayout);
+        pnlTopLayout.setHorizontalGroup(
+            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTopLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(214, 214, 214))))
+        );
+        pnlTopLayout.setVerticalGroup(
+            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTopLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        pnlSide.setBackground(new java.awt.Color(0, 51, 51));
+
+        javax.swing.GroupLayout pnlSideLayout = new javax.swing.GroupLayout(pnlSide);
+        pnlSide.setLayout(pnlSideLayout);
+        pnlSideLayout.setHorizontalGroup(
+            pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        pnlSideLayout.setVerticalGroup(
+            pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
+        );
+
+        tblTeacherList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"John Bernard Galicia", "16", "October, 22, 2007", null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Age", "Birthdate", "Sex", "Strand", "Section"
+            }
+        ));
+        sclpaneTeacherList.setViewportView(tblTeacherList);
+        if (tblTeacherList.getColumnModel().getColumnCount() > 0) {
+            tblTeacherList.getColumnModel().getColumn(0).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tblTeacherList.getColumnModel().getColumn(1).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(1).setPreferredWidth(8);
+            tblTeacherList.getColumnModel().getColumn(2).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(2).setPreferredWidth(30);
+            tblTeacherList.getColumnModel().getColumn(3).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(3).setPreferredWidth(3);
+            tblTeacherList.getColumnModel().getColumn(4).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(4).setPreferredWidth(10);
+            tblTeacherList.getColumnModel().getColumn(5).setResizable(false);
+            tblTeacherList.getColumnModel().getColumn(5).setPreferredWidth(5);
+        }
+
+        paneMain.addTab("Teacher's List", sclpaneTeacherList);
+        paneMain.addTab("Educational Background", paneEducationalBackground);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlSide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(paneMain, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paneMain, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -78,5 +195,13 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTabbedPane paneEducationalBackground;
+    private javax.swing.JTabbedPane paneMain;
+    private javax.swing.JPanel pnlSide;
+    private javax.swing.JPanel pnlTop;
+    private javax.swing.JScrollPane sclpaneTeacherList;
+    private javax.swing.JTable tblTeacherList;
     // End of variables declaration//GEN-END:variables
 }
