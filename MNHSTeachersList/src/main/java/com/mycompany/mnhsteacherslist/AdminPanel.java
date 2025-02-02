@@ -8,7 +8,6 @@ package com.mycompany.mnhsteacherslist;
  *
  * @author Hanprince
  */
-
 // Packages 
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -20,16 +19,19 @@ public class AdminPanel extends javax.swing.JFrame {
      */
     public AdminPanel() {
         initComponents();
-        // Centering the table (DO NOT TOUCH)
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+
+        // Centering the teacher's table (DO NOT TOUCH)
         DefaultTableCellRenderer center = new DefaultTableCellRenderer();
         center.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        for(int i = 0; i < tblTeacherList.getColumnCount(); i++) {
+
+        for (int i = 0; i < tblTeacherList.getColumnCount(); i++) {
             tblTeacherList.getColumnModel().getColumn(i).setCellRenderer(center);
         }
-        
+
         tblTeacherList.getTableHeader().setDefaultRenderer(center);
-        
+
     }
 
     /**
@@ -42,64 +44,111 @@ public class AdminPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlTop = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblTitle2 = new javax.swing.JLabel();
         pnlSide = new javax.swing.JPanel();
-        paneMain = new javax.swing.JTabbedPane();
+        lblListConfiguration = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        paneEducationalBackground = new javax.swing.JTabbedPane();
         sclpaneTeacherList = new javax.swing.JScrollPane();
         tblTeacherList = new javax.swing.JTable();
-        paneEducationalBackground = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlTop.setBackground(new java.awt.Color(0, 153, 153));
+        pnlTop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Teacher's Information Management System");
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblTitle.setText("Teacher's Information Management System");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Muntinlupa National High School - Senior High");
+        lblTitle2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitle2.setText("Muntinlupa National High School - Senior High");
 
         javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
         pnlTop.setLayout(pnlTopLayout);
         pnlTopLayout.setHorizontalGroup(
             pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTopLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblTitle)
                         .addGap(33, 33, 33))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblTitle2)
                         .addGap(214, 214, 214))))
         );
         pnlTopLayout.setVerticalGroup(
             pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTopLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(jLabel1)
+                .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(lblTitle2)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pnlSide.setBackground(new java.awt.Color(0, 51, 51));
+        pnlSide.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblListConfiguration.setBackground(new java.awt.Color(204, 255, 204));
+        lblListConfiguration.setForeground(new java.awt.Color(242, 242, 242));
+        lblListConfiguration.setText("List Configuration");
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnEdit.setText("Edit");
+
+        btnDelete.setText("Delete");
 
         javax.swing.GroupLayout pnlSideLayout = new javax.swing.GroupLayout(pnlSide);
         pnlSide.setLayout(pnlSideLayout);
         pnlSideLayout.setHorizontalGroup(
             pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(pnlSideLayout.createSequentialGroup()
+                .addGroup(pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSideLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlSideLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblListConfiguration)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         pnlSideLayout.setVerticalGroup(
             pnlSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGroup(pnlSideLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(lblListConfiguration)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDelete)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
+        paneEducationalBackground.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        sclpaneTeacherList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        tblTeacherList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblTeacherList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"John Bernard Galicia", "16", "October, 22, 2007", null, null, null},
+                {"John Bernard Galicia", "16", "October, 22, 2007", "M", "ICT", "1101"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -134,8 +183,22 @@ public class AdminPanel extends javax.swing.JFrame {
             tblTeacherList.getColumnModel().getColumn(5).setPreferredWidth(5);
         }
 
-        paneMain.addTab("Teacher's List", sclpaneTeacherList);
-        paneMain.addTab("Educational Background", paneEducationalBackground);
+        paneEducationalBackground.addTab("Teacher's List", sclpaneTeacherList);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Information Technology", "BSIT"},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Major", "Bachelor Degree"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        paneEducationalBackground.addTab("Educational Background", jScrollPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,7 +208,7 @@ public class AdminPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlSide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(paneMain, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(paneEducationalBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,11 +216,18 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paneMain, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(paneEducationalBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        Resume resume = new Resume(this, true);
+
+        resume.setVisible(true);
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,10 +265,15 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblListConfiguration;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTitle2;
     private javax.swing.JTabbedPane paneEducationalBackground;
-    private javax.swing.JTabbedPane paneMain;
     private javax.swing.JPanel pnlSide;
     private javax.swing.JPanel pnlTop;
     private javax.swing.JScrollPane sclpaneTeacherList;
